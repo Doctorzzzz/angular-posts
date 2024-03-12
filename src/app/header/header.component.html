@@ -1,0 +1,36 @@
+<div
+  class="flex flex-wrap bg-gray-800 justify-between min-h-12 px-8 items-center"
+>
+  <div class="flex flex-wrap space-x-6">
+    <a
+      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 text-base font-medium"
+      routerLink="post-list"
+      rel="noopener noreferrer"
+      >Live-posts</a
+    >
+    <a
+      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 text-base font-medium"
+      routerLink="post-list"
+      rel="noopener noreferrer"
+      >Home</a
+    >
+    <a
+      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 text-base font-medium"
+      routerLink="post-edit"
+      rel="noopener noreferrer"
+      >Add Post</a
+    >
+    <a (click)="onSave()"
+      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 text-base font-medium"
+      routerLink="#"
+      >Save</a
+    >
+  </div>
+  <div>
+    <a (click)="onFetch()"
+      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 text-base font-medium"
+      routerLink="#"
+      >Fetch</a
+    >
+  </div>
+</div>

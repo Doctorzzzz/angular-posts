@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex flex-col h-screen bg-slate-200">
+      <div class="w-2/5 px-20 py-12 space-y-8">
+        <h1 *ngIf="editMode===false" class="flex text-3xl items-center font-medium">Post Add</h1>
+        <h1 *ngIf="editMode===true"  class="flex text-3xl items-center font-medium">Post Edit</h1>
+        <form
+          class="flex flex-col space-y-4"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="flex flex-col space-y-2">
+            <label for="title">Title:</label>
+            <input
+              class="px-2 min-h-8 py-1 rounded-lg"
+              id="title"
+              type="text"
+              formControlName="title"
+            />
+          </div>
+          <div
+            class="error max-w-full"
+            *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+          >
+            <small
+              class="text-base"
+              *ngIf="form.get('name')?.hasError('required')"
+              >*Name is required.</small
+            >
+            <small
+              class="text-base"
+              *ngIf="form.get('name')?.hasError('minlength')"
+              >*Name must be at least 4 characters.</small
+            >
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <label for="path">Image path:</label>
+            <input
+              class="px-2 py-1 min-h-8 rounded-lg"
+              id="path"
+              type="text"
+              formControlName="imagePath"
+            />
+            <img src="{{ form.value.imagePath }}" alt="" />
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <label for="letter">Description:</label>
+            <textarea
+              class="min-h-40 px-2 py-2 rounded-lg"
+              id="letter"
+              type="text"
+              formControlName="Description"
+            ></textarea>
+          </div>
+          <div class="flex space-x-2 justify-around">
+            <div>
+              <button [disabled]="form.invalid"
+                class="bg-green-500 hover:bg-green-700 text-white border-2 border-slate-500 hover:border-slate-600 font-medium py-1 px-4 rounded-full"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+
+            <button
+              class="bg-red-500 hover:bg-red-700 text-white font-medium border-2 border-slate-500 hover:border-slate-600 py-1 px-4 rounded-full"
+              type="reset"
+            >
+              Clear
+            </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <small *ngIf="form.get('name')?.invalid && form.get('name')?.touched">*Name is required field</small> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <div class="min-h-full h-screen bg-blue-50 py-6 flex flex-col items-center">
+      <div class="space-y-5 flex flex-col w-1/4 ">
+        <div class="text-3xl">
+          <h1><strong>Add Post</strong></h1>
+        </div>
+        <form class="space-y-10 flex flex-col justify-around" action="">
+          <div class="flex justify-between">
+            <label for="title">Title:</label>
+            <input
+              class="px-1 outline outline-offset-2"
+              placeholder="Type your title"
+              id="title"
+              type="text"
+              value=""
+            />
+          </div>
+          <div class="flex justify-between">
+            <label for="name">Name:</label>
+            <input
+              class="px-1 outline outline-offset-2"
+              placeholder="Type your name"
+              id="name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div class="flex justify-between">
+            <label for="description">Description:</label>
+            <textarea
+              class="px-1 outline outline-offset-2"
+              placeholder="Type your description"
+              id="description"
+              type="text"
+              value=""
+            ></textarea>
+          </div>
+          <div class="flex justify-between">
+            <label for="email">Email:</label>
+            <input
+              class="px-1 outline outline-offset-2"
+              placeholder="Type your email"
+              id="email"
+              type="text"
+              value=""
+            />
+          </div>
+          <button type="submit">submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html> -->

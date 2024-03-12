@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+textarea.ng-invalid.ng-touched,input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+small{
+    color: red;
+    font-weight: bold;
+}
+
+.error{
+    color: red;
+}
+
+input,button{
+    border: 1px solid black;
+    min-width: 90px;
+
+}
